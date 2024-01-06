@@ -1,0 +1,39 @@
+.rallyCars{
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.carCard{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px 40px;
+  max-width: 500px;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.title{
+  font-size: 30px;
+}
+
+.image{
+  object-fit: cover;
+  width: 420px;
+  height: 280px;
+}
+
+.carDetails{
+  display: flex;
+  gap: 40px;
+}
+
+.detail{
+  font-size: 20px;
+}

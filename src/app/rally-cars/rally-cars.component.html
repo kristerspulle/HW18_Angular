@@ -1,0 +1,14 @@
+<ul class="rallyCars">
+  <li *ngFor="let car of cars">
+    <button type="button" class="carCard" (click)="onSelect(car)">
+      <h2 class="title">{{car.name}}</h2>
+      <img [src]="car.image" alt="car.name" class="image"/>
+      <div class="carDetails">
+        <p class="detail"><b>Drivetrain:</b> {{car.drivetrain}}</p>
+        <p class="detail"><b>Horsepower:</b> {{car.horsepower}}</p>
+      </div>
+    </button>
+  </li>
+</ul>
+
+<app-rally-car-details [car]="selectedCar"></app-rally-car-details>

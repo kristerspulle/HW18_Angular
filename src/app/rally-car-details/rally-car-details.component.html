@@ -1,0 +1,9 @@
+<div class="carCard" *ngIf="car">
+  <input type="text" [(ngModel)]='car.name' placeholder="car.name">
+  <img [src]="car.image" alt="car.name" class="image"/>
+  <div class="carDetails">
+    <p class="detail"><b>Drivetrain:</b> {{car.drivetrain}}</p>
+    <p class="detail"><b>Horsepower:</b> {{car.horsepower}}</p>
+  </div>
+</div>
+
