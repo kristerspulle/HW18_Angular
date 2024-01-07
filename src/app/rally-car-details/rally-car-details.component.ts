@@ -2,14 +2,37 @@ import { Component, Input } from '@angular/core';
 import { Car } from '../Car';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { RallyCarService } from '../rally-car.service';
 
 @Component({
   selector: 'app-rally-car-details',
   standalone: true,
-  imports: [ FormsModule, NgIf ],
+  imports: [FormsModule, NgIf],
   templateUrl: './rally-car-details.component.html',
-  styleUrl: './rally-car-details.component.css'
+  styleUrl: './rally-car-details.component.css',
 })
 export class RallyCarDetailsComponent {
-  @Input() car?: Car
+  constructor(
+    private route: ActivatedRoute,
+    private rallyCarService: RallyCarService,
+    private location: Location
+  ) {}
+  
+  ngOnInit(): void {
+    this.getRallyCar();
+  }
+  
+  getRallyCar(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.rallyCarService.getRallyCar(id)
+      .subscribe(car => this.car = car);
+  }
+
+  goBack(): void {
+    this.location.back()
+  }
+  
+  @Input() car?: Car;
 }

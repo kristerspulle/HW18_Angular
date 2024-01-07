@@ -17,6 +17,8 @@
   gap: 10px;
   background-color: white;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 .title{
