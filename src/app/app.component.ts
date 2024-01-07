@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RallyCarsComponent } from './rally-cars/rally-cars.component';
 import { MessagesComponent } from './messages/messages.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +13,5 @@ import { MessagesComponent } from './messages/messages.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Rally Cars';
+  title: string = 'Rally Cars';
 }

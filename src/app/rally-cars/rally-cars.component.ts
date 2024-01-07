@@ -3,7 +3,6 @@ import { Car } from '../Car';
 import { RallyCarService } from '../rally-car.service';
 import { NgFor } from '@angular/common';
 import { RallyCarDetailsComponent } from '../rally-car-details/rally-car-details.component';
-import { MessageService } from '../message.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -14,9 +13,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './rally-cars.component.css',
 })
 export class RallyCarsComponent {
-  cars: Car[] = [];
 
-  constructor(private rallyCarService: RallyCarService, private messageService: MessageService) {}
+  constructor(private rallyCarService: RallyCarService) {}
+
+  cars: Car[] = [];
 
   getRallyCars(): void {
     this.rallyCarService.getRallyCars()

@@ -27,11 +27,17 @@ export class RallyCarDetailsComponent {
   getRallyCar(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.rallyCarService.getRallyCar(id)
-      .subscribe(car => this.car = car);
+      .subscribe((car: Car): Car => this.car = car);
   }
 
   goBack(): void {
     this.location.back()
+  }
+
+  save(): void {
+    if(this.car) {
+      this.rallyCarService.updateCar(this.car).subscribe((): void => this.goBack())
+    }
   }
   
   @Input() car?: Car;
