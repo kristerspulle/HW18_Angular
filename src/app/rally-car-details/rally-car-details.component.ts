@@ -2,14 +2,14 @@ import { Component, Input } from '@angular/core';
 import { Car } from '../Car';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Location } from '@angular/common';
 import { RallyCarService } from '../rally-car.service';
 
 @Component({
   selector: 'app-rally-car-details',
   standalone: true,
-  imports: [FormsModule, NgIf],
+  imports: [FormsModule, NgIf, RouterLink],
   templateUrl: './rally-car-details.component.html',
   styleUrl: './rally-car-details.component.css',
 })
@@ -34,10 +34,8 @@ export class RallyCarDetailsComponent {
     this.location.back()
   }
 
-  save(): void {
-    if(this.car) {
-      this.rallyCarService.updateCar(this.car).subscribe((): void => this.goBack())
-    }
+  delete(car: Car): void {
+    this.rallyCarService.deleteCar(car).subscribe((): void => this.goBack())
   }
   
   @Input() car?: Car;

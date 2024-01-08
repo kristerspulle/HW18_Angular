@@ -1,11 +1,16 @@
-<div class="carCard" *ngIf="car">
-  <input id="car.id" type="text" [(ngModel)]='car.name' placeholder="car.name">
-  <img [src]="car.image" alt="car.name" class="image"/>
-  <div class="carDetails">
-    <p class="detail"><b>Drivetrain:</b> {{car.drivetrain}}</p>
-    <p class="detail"><b>Horsepower:</b> {{car.horsepower}}</p>
+<div class="wrapper">
+  <div class="carCard" *ngIf="car">
+    <h3 class="title">{{car.name}}</h3>
+    <img [src]="car.image" alt="car.name" class="image"/>
+    <div class="carDetails">
+      <p class="detail"><b>Drivetrain:</b> {{car.drivetrain}}</p>
+      <p class="detail"><b>Horsepower:</b> {{car.horsepower}}</p>
+    </div>
+    <div class="buttonWrapper">
+      <button class="button" type="button" (click)="goBack()">Back</button>
+      <a class="button" type="button" routerLink="/editcar/{{car.id}}">Edit</a>
+      <button class="button" type="button" (click)="delete(car)">Delete</button>
+    </div>
   </div>
-  <button type="button" (click)="goBack()">Back</button>
-  <button type="button" (click)="save()">save</button>
 </div>
 

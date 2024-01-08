@@ -1,0 +1,48 @@
+<form action="submit" class="formWrapper">
+  <div class="form">
+    <label class="label" for="name">Car`s Name</label>
+    <input
+      class="input"
+      type="text"
+      id="name"
+      name="carName"
+      [(ngModel)]="carName"
+      placeholder="Enter name"
+      required
+    />
+    <label class="label" for="image">Car`s Image</label>
+    <input
+      class="input"
+      type="text"
+      id="image"
+      name="carImage"
+      [(ngModel)]="carImage"
+      placeholder="Enter image URL"
+      required
+    />
+    <label class="label" for="drivetrain">Car`s Drivetrain</label>
+    <input
+      class="input"
+      type="text"
+      id="drivetrain"
+      name="carDrivetrain"
+      [(ngModel)]="carDrivetrain"
+      placeholder="Enter drivetrain"
+      required
+    />
+    <label class="label" for="horsepower">Car`s Horsepower</label>
+    <input
+      class="input"
+      type="text"
+      id="horsepower"
+      name="carHorsepower"
+      [(ngModel)]="carHorsepower"
+      placeholder="Enter horsepower"
+      required
+    />
+    <div class="buttonWrapper">
+      <button class="button" type="button" (click)="goBack()">Back</button>
+      <button class="button" type="button" (click)="addCar()">Add Car</button>
+    </div>
+  </div>
+</form>

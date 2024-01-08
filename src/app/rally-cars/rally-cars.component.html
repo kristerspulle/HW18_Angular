@@ -1,3 +1,10 @@
+<div class="headerWrapper">
+  <h3 class="header">World Rally Cars (1997-2021)</h3>
+  <a class="addCarButton" routerLink="/addcar">Add Car</a>
+</div>
+
+
+
 <ul class="rallyCars">
   <li *ngFor="let car of cars">
     <a class="carCard" routerLink="/car/{{car.id}}">
@@ -10,5 +17,3 @@
     </a>
   </li>
 </ul>
-
-<!-- <app-rally-car-details [car]="selectedCar"></app-rally-car-details> -->

@@ -9,9 +9,8 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class RallyCarService {
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  httpOptions: { headers: HttpHeaders } = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
   constructor(
@@ -46,10 +45,37 @@ export class RallyCarService {
     );
   }
 
-  updateCar(car: Car): Observable<any> {
-    return this.http.put<Car>(`http://localhost:3000/rallyCars/${car.id}`, car, this.httpOptions).pipe(
-      tap((_: Car): void => this.log(`updated car id=${car.id}`)),
-      catchError(this.handleError<any>('updateCar'))
-    );
+  updateCar(car: Car): Observable<Car> {
+    return this.http
+      .put<Car>(
+        `http://localhost:3000/rallyCars/${car.id}`,
+        car,
+        this.httpOptions
+      )
+      .pipe(
+        tap((_: Car): void => this.log(`updated car id=${car.id}`)),
+        catchError(this.handleError<Car>('updateCar'))
+      );
+  }
+
+  addCar(car: Car): Observable<Car> {
+    return this.http
+      .post<Car>('http://localhost:3000/rallyCars', car, this.httpOptions)
+      .pipe(
+        tap((newCar: Car): void => this.log(`added car w/ id=${newCar.id}`)),
+        catchError(this.handleError<Car>('addCar'))
+      );
+  }
+
+  deleteCar(car: Car): Observable<Car> {
+    return this.http
+      .delete<Car>(
+        `http://localhost:3000/rallyCars/${car.id}`,
+        this.httpOptions
+      )
+      .pipe(
+        tap((deleteCar: Car): void => this.log(`deleted car w/ id=${deleteCar.id}`)),
+        catchError(this.handleError<Car>('deleteCar'))
+      );
   }
 }

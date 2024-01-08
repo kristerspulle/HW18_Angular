@@ -11,7 +11,10 @@ html {
 }
 
 body{
-  padding: 20px 100px;
+  padding: 20px 154px;
+  font-family: 'Quicksand', sans-serif;
+  background-image: url(https://wrc.enhance.diagnal.com/resources/images/eyJrZXkiOiJodHRwczovL2VuaGFuY2Utc3RvcmFnZS1zdGFjay1wcm9kLXdyY21lZGlhZmlsZXN0b3JhZ2UtZzN6MmhnM3Vyd2ZmLnMzLmFtYXpvbmF3cy5jb20vYzlkNDc2N2EtMWMzYi00MmExLThmYjMtZGI4YzRjMzEzOGFhXzUuanBnIiwidGltZXN0YW1wIjoiMjAyNC0wMS0wNVQxMDoyODo0Ni42OTJaIiwiZWRpdHMiOnsiZXh0cmFjdCI6eyJsZWZ0IjowLCJ0b3AiOjI3MSwid2lkdGgiOjQwMDAsImhlaWdodCI6MjI1MH0sInJlc2l6ZSI6eyJ3aWR0aCI6MTkyMCwiaGVpZ2h0IjoxMDgwfSwianBlZyI6eyJxdWFsaXR5IjoxMDB9fX0=/c9d4767a-1c3b-42a1-8fb3-db8c4c3138aa_5.jpg);
+  object-fit: cover;
 }
 
 body, h1, h2, h3, h4, p,
