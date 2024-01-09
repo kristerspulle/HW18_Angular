@@ -35,7 +35,9 @@ export class RallyCarDetailsComponent {
   }
 
   delete(car: Car): void {
-    this.rallyCarService.deleteCar(car).subscribe((): void => this.goBack())
+    this.rallyCarService.deleteCar(car).subscribe((): void => {
+      alert('Car has been deleted.')
+      this.goBack()})
   }
   
   @Input() car?: Car;

@@ -42,7 +42,9 @@ export class EditCarComponent {
 
   save(): void {
     if(this.car) {
-      this.rallyCarService.updateCar(this.car).subscribe((): void => this.goHomepage())
+      this.rallyCarService.updateCar(this.car).subscribe((): void => {
+        alert('Car has been updated.')
+        this.goHomepage()})
     }
   }
 

@@ -59,6 +59,7 @@ export class CarFormComponent {
 
     this.rallyCarService.addCar(newCar).subscribe((car: Car): void => {
       this.cars.push(car);
+      alert('A Car has been added.')
       this.clearForm();
       this.goBack();
     });

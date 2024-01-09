@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Car } from './Car';
 import { Observable, of } from 'rxjs';
-import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +13,6 @@ export class RallyCarService {
   };
 
   constructor(
-    private messageService: MessageService,
     private http: HttpClient
   ) {}
 
@@ -38,7 +36,6 @@ export class RallyCarService {
   }
 
   getRallyCar(id: number): Observable<Car> {
-    this.messageService.add(`RallyCarService: fetched car id=${id}`);
     return this.http.get<Car>(`http://localhost:3000/rallyCars/${id}`).pipe(
       tap((_: Car): void => this.log('fetched cars')),
       catchError(this.handleError<Car>(`getCars id=${id}`))
