@@ -1,15 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { Car } from '../Car';
-import { FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { NgIf, Location } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Location } from '@angular/common';
 import { RallyCarService } from '../rally-car.service';
 
 @Component({
   selector: 'app-rally-car-details',
   standalone: true,
-  imports: [FormsModule, NgIf, RouterLink],
+  imports: [ NgIf, RouterLink],
   templateUrl: './rally-car-details.component.html',
   styleUrl: './rally-car-details.component.css',
 })
