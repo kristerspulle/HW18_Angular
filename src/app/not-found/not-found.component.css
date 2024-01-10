@@ -1,0 +1,30 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.title{
+  font-size: 30px;
+}
+
+.image{
+  border-radius: 10px;
+}
+
+.button{
+  border: 1px solid green;
+  padding: 10px 15px;
+  background-color: green;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover{
+  opacity: 0.7;
+  transition: 0.3s;
+}

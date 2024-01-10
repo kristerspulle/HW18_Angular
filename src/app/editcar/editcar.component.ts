@@ -29,7 +29,7 @@ export class EditCarComponent {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.rallyCarService
       .getRallyCar(id)
-      .subscribe((car: Car): Car => (this.car = car));
+      .subscribe((car: Car): Car => this.car = car);
   }
 
   goBack(): void {

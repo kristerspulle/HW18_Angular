@@ -3,6 +3,7 @@ import { Car } from './Car';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,8 @@ export class RallyCarService {
   };
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {}
 
   private log(message: string) {
@@ -24,6 +26,7 @@ export class RallyCarService {
     return (error: any): Observable<T> => {
       console.error(error);
       this.log(`${operation} failed: ${error.message}`);
+      this.router.navigate(['404'], { skipLocationChange: true })
       return of(result as T);
     };
   }
@@ -37,8 +40,8 @@ export class RallyCarService {
 
   getRallyCar(id: number): Observable<Car> {
     return this.http.get<Car>(`http://localhost:3000/rallyCars/${id}`).pipe(
-      tap((_: Car): void => this.log('fetched cars')),
-      catchError(this.handleError<Car>(`getCars id=${id}`))
+      tap((_: Car): void => this.log(`fetched car /w id=${id}`)),
+      catchError(this.handleError<Car>(`Car /w id=${id} not found`))
     );
   }
 
@@ -50,7 +53,7 @@ export class RallyCarService {
         this.httpOptions
       )
       .pipe(
-        tap((_: Car): void => this.log(`updated car id=${car.id}`)),
+        tap((_: Car): void => this.log(`updated car w/ id=${car.id}`)),
         catchError(this.handleError<Car>('updateCar'))
       );
   }
