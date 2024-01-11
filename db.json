@@ -41,6 +41,13 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Chris_Atkinson_-_2008_Rally_Catalunya.jpg",
       "drivetrain": "4WD",
       "horsepower": "300"
+    },
+    {
+      "id": 0.7301481581550013,
+      "name": "Ford Focus RS WRC 06",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Gr%C3%B6nholm%2C_Rallye_Catalunya_2006._-_panoramio.jpg",
+      "drivetrain": "4WD",
+      "horsepower": "133"
     }
   ]
 }
